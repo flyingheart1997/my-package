@@ -1,0 +1,45 @@
+{
+    "name": "@org-design-system/icons",
+    "version": "0.1.10",
+    "description": "Icon components for the @org-design-system",
+    "publishConfig": {
+        "access": "public"
+    },
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "style": "./src/index.css",
+    "source": "./src/index.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs",
+            "default": "./src/index.ts"
+        },
+        "./*": "./*"
+    },
+    "files": [
+        "dist",
+        "src"
+    ],
+    "scripts": {
+        "build": "node build.js && tsup && cp src/index.css dist/index.css || true",
+        "dev": "node build.js && tsup --watch"
+    },
+    "devDependencies": {
+        "@svgr/cli": "^8.1.0",
+        "svgo": "^3.2.0",
+        "tsup": "^8.5.1",
+        "typescript": "^5.3.3",
+        "@types/react": "19.0.10",
+        "@types/react-dom": "19.0.4"
+    },
+    "dependencies": {
+        "tailwindcss": "^4.0.0",
+        "@org-design-system/styles": "workspace:*"
+    },
+    "peerDependencies": {
+        "react": ">=18"
+    }
+}

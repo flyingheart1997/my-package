@@ -1,0 +1,46 @@
+{
+  "name": "@org-design-system/design-system-internal",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.3.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev --filter=web --filter=@org-design-system/components",
+    "build": "npx turbo build",
+    "lint": "npx turbo lint",
+    "build:design-tokens": "npx turbo run build:design-tokens",
+    "build:icons": "npx turbo run build:icons",
+    "storybook": "npx turbo run dev --filter=storybook --filter=@org-design-system/components",
+    "build-storybook": "npx turbo run build --filter=storybook",
+    "publish:all": "pnpm -r publish --access public --no-git-checks"
+  },
+  "dependencies": {
+    "@org-design-system/icons": "workspace:*",
+    "@org-design-system/styles": "workspace:*",
+    "@org-design-system/components": "workspace:*",
+    "lucide-react": "^0.477.0",
+    "next": "15.2.0",
+    "radix-ui": "^1.4.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.5",
+    "@eslint/js": "^10.0.1",
+    "@tailwindcss/postcss": "^4.2.1",
+    "@types/node": "^20.11.1",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "autoprefixer": "^10.4.27",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "15.2.0",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.0.0",
+    "tsx": "^4.7.1",
+    "turbo": "^2.0.0",
+    "typescript": "^5.3.3"
+  }
+}

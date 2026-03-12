@@ -1,0 +1,9 @@
+{
+    "name": "@org-design-system/config",
+    "version": "0.1.0",
+    "private": true,
+    "devDependencies": {
+        "tailwindcss": "^4.0.0",
+        "typescript": "^5.3.3"
+    }
+}

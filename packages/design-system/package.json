@@ -1,0 +1,40 @@
+{
+    "name": "org-design-system",
+    "version": "0.1.10",
+    "description": "The professional design system for organization",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "style": "./dist/index.css",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.js"
+        },
+        "./components": {
+            "types": "./dist/components.d.ts",
+            "import": "./dist/components.mjs",
+            "require": "./dist/components.js"
+        },
+        "./icons": {
+            "types": "./dist/icons.d.ts",
+            "import": "./dist/icons.mjs",
+            "require": "./dist/icons.js"
+        },
+        "./style.css": "./dist/index.css"
+    },
+    "dependencies": {
+        "@org-design-system/styles": "workspace:*",
+        "@org-design-system/components": "workspace:*",
+        "@org-design-system/icons": "workspace:*"
+    },
+    "scripts": {
+        "build": "tsup && cp src/index.css dist/index.css",
+        "dev": "tsup --watch"
+    },
+    "devDependencies": {
+        "tsup": "^8.5.1",
+        "typescript": "^5.3.3"
+    }
+}

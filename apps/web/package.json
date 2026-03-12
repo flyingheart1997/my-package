@@ -1,0 +1,17 @@
+{
+  "name": "web",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "devDependencies": {
+    "org-design-system": "workspace:*",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "radix-ui": "^1.4.3"
+  }
+}

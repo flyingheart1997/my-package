@@ -1,0 +1,41 @@
+{
+    "name": "@org-design-system/styles",
+    "version": "0.1.10",
+    "description": "Design tokens for the @org-design-system Design System",
+    "publishConfig": {
+        "access": "public"
+    },
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "style": "./src/index.css",
+    "source": "./src/index.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs",
+            "default": "./src/index.ts"
+        },
+        "./index.css": "./src/index.css",
+        "./component.css": "./src/component.css",
+        "./*": "./*"
+    },
+    "files": [
+        "dist",
+        "src"
+    ],
+    "scripts": {
+        "build": "node build.js && tsup src/index.ts --format esm,cjs --dts --clean && cp src/index.css dist/index.css || true",
+        "dev": "tsup src/index.ts --format esm,cjs --watch --dts"
+    },
+    "dependencies": {
+        "tailwindcss": "^4.0.0"
+    },
+    "devDependencies": {
+        "tsup": "^8.5.1",
+        "tsx": "^4.7.1",
+        "typescript": "^5.3.3"
+    }
+}

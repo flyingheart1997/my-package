@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@org-design-system/components": ["../../packages/ui/src/index.ts"],
+      "@org-design-system/icons": ["../../packages/icons/src/index.ts"],
+      "@org-design-system/styles/*": ["../../packages/styles/*"]
+    }
+  },
+  "include": ["src", ".storybook"]
+}

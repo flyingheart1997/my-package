@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@import "../../../packages/ui/src/index.css";
+@source "../src/stories/**/*.tsx";
+
+#storybook-root {
+    display: flex;
+    width: 100%;
+}
+
+/* Optional: remove padding from the main Storybook preview container if needed */
+/* .sb-main-padded { padding: 0 !important; } */

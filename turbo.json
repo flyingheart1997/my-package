@@ -1,0 +1,32 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "tasks": {
+        "build": {
+            "dependsOn": [
+                "^build"
+            ],
+            "outputs": [
+                "dist/**",
+                ".next/**",
+                "output/**"
+            ]
+        },
+        "lint": {
+            "outputs": []
+        },
+        "dev": {
+            "cache": false,
+            "persistent": true
+        },
+        "build:design-tokens": {
+            "outputs": [
+                "src/**"
+            ]
+        },
+        "build:icons": {
+            "outputs": [
+                "src/**"
+            ]
+        }
+    }
+}

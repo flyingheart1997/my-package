@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@import "@org-design-system/styles/index.css";
+@import "@org-design-system/styles/component.css";
+
+@source "./components/**/*.tsx";
+
+@theme {
+  /* Mapping for shadcn components that expect these variables */
+  --color-background: var(--color-surface-bg);
+  --color-foreground: var(--color-text-primary);
+  
+  --color-primary: var(--color-green-9);
+  --color-primary-foreground: var(--color-gray-1);
+  
+  --color-secondary: var(--color-gray-alpha-3);
+  --color-secondary-foreground: var(--color-text-primary);
+  
+  --color-muted: var(--color-gray-alpha-2);
+  --color-muted-foreground: var(--color-text-secondary);
+  
+  --color-accent: var(--color-green-alpha-2);
+  --color-accent-foreground: var(--color-text-focus);
+  
+  --color-destructive: var(--color-red-9);
+  --color-destructive-foreground: var(--color-gray-1);
+  
+  --color-border: var(--color-stroke-primary);
+  --color-input: var(--color-stroke-primary);
+  --color-ring: var(--color-surface-focus);
+}

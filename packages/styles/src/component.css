@@ -1,0 +1,20 @@
+
+.org-btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+
+/* primary button */
+.org-btn-primary {
+  background-color: #2563EB;
+  color: white;
+}
+
+/* secondary button */
+.org-btn-secondary {
+  background-color: #E5E7EB;
+  color: #111827;
+}
