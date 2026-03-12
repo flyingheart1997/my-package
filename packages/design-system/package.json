@@ -1,6 +1,6 @@
 {
     "name": "org-design-system",
-    "version": "0.1.10",
+    "version": "0.1.11",
     "description": "The professional design system for organization",
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
@@ -30,7 +30,7 @@
         "@org-design-system/icons": "workspace:*"
     },
     "scripts": {
-        "build": "tsup && cp src/index.css dist/index.css",
+        "build": "tsup && node bundle-css.mjs",
         "dev": "tsup --watch"
     },
     "devDependencies": {

@@ -1,6 +1,6 @@
 {
     "name": "@org-design-system/components",
-    "version": "0.1.10",
+    "version": "0.1.11",
     "description": "UI components for the @org-design-system",
     "publishConfig": {
         "access": "public"
@@ -23,7 +23,7 @@
         "./index.css": {
             "default": "./dist/index.css"
         },
-        "./style": "./src/index.css",
+        "./style": "./dist/index.css",
         "./*": "./*"
     },
     "files": [
