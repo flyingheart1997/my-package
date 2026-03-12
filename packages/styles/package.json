@@ -1,6 +1,6 @@
 {
     "name": "@org-design-system/styles",
-    "version": "0.1.10",
+    "version": "0.1.11",
     "description": "Design tokens for the @org-design-system Design System",
     "publishConfig": {
         "access": "public"
@@ -18,8 +18,8 @@
             "require": "./dist/index.cjs",
             "default": "./src/index.ts"
         },
-        "./index.css": "./src/index.css",
-        "./component.css": "./src/component.css",
+        "./index.css": "./dist/index.css",
+        "./component.css": "./dist/component.css",
         "./*": "./*"
     },
     "files": [
@@ -27,7 +27,7 @@
         "src"
     ],
     "scripts": {
-        "build": "node build.js && tsup src/index.ts --format esm,cjs --dts --clean && cp src/index.css dist/index.css || true",
+        "build": "node build.js && tsup src/index.ts --format esm,cjs --dts --clean && cp src/index.css dist/index.css && cp src/component.css dist/component.css || true",
         "dev": "tsup src/index.ts --format esm,cjs --watch --dts"
     },
     "dependencies": {
