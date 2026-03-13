@@ -1,11 +1,11 @@
 @import "tailwindcss";
 @import "@org-design-system/styles/index.css";
-@import "@org-design-system/styles/component.css";
 
 @source "./components/**/*.tsx";
 
+
 @theme {
-  /* Mapping for shadcn components that expect these variables */
+  /* Semantic Mappings */
   --color-background: var(--color-surface-bg);
   --color-foreground: var(--color-text-primary);
   

@@ -16,10 +16,15 @@ const OUTPUT_DIR = path.resolve(__dirname, 'src');
 async function build() {
     console.log('🎨 Building Icon Library...');
 
-    // Clean output directory for a fresh build
+    // Clean output directory selectively to preserve index.css
     if (fs.existsSync(OUTPUT_DIR)) {
-        console.log('🧹 Cleaning existing components...');
-        fs.rmSync(OUTPUT_DIR, { recursive: true, force: true });
+        console.log('🧹 Cleaning existing components (preserving index.css)...');
+        const files = fs.readdirSync(OUTPUT_DIR);
+        for (const file of files) {
+            if (file !== 'index.css') {
+                fs.rmSync(path.join(OUTPUT_DIR, file), { recursive: true, force: true });
+            }
+        }
     }
     fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 

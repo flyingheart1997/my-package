@@ -20,7 +20,7 @@ This package leverages the `@org-design-system/styles` engine. Components are no
 
 ## 📦 Usage
 
-While this package can be used standalone, it is recommended to consume it via the `org-design-system` metapackage.
+While this package can be used standalone, it is recommended to consume it via the `@org-design-system/core` metapackage.
 
 ```tsx
 import { Button, Badge, Toggle } from "@org-design-system/components";

@@ -1,6 +1,6 @@
 {
-    "name": "org-design-system",
-    "version": "0.1.11",
+    "name": "@org-design-system/core",
+    "version": "0.1.15",
     "description": "The professional design system for organization",
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
@@ -10,8 +10,12 @@
         ".": {
             "types": "./dist/index.d.ts",
             "import": "./dist/index.mjs",
-            "require": "./dist/index.js"
+            "require": "./dist/index.js",
+            "style": "./dist/index.css"
         },
+        "./style.css": "./dist/index.css",
+        "./styles.css": "./dist/index.css",
+        "./styles": "./dist/index.css",
         "./components": {
             "types": "./dist/components.d.ts",
             "import": "./dist/components.mjs",
@@ -22,12 +26,32 @@
             "import": "./dist/icons.mjs",
             "require": "./dist/icons.js"
         },
-        "./style.css": "./dist/index.css"
+        "./tokens": {
+            "types": "./dist/tokens.d.ts",
+            "import": "./dist/tokens.mjs",
+            "require": "./dist/tokens.js"
+        }
     },
     "dependencies": {
         "@org-design-system/styles": "workspace:*",
         "@org-design-system/components": "workspace:*",
         "@org-design-system/icons": "workspace:*"
+    },
+    "peerDependencies": {
+        "@org-design-system/styles": "*",
+        "@org-design-system/components": "*",
+        "@org-design-system/icons": "*"
+    },
+    "peerDependenciesMeta": {
+        "@org-design-system/styles": {
+            "optional": false
+        },
+        "@org-design-system/components": {
+            "optional": false
+        },
+        "@org-design-system/icons": {
+            "optional": false
+        }
     },
     "scripts": {
         "build": "tsup && node bundle-css.mjs",

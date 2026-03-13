@@ -12,7 +12,7 @@ The project is structured as a monorepo using **NPM Workspaces** and **Turborepo
 │   ├── storybook         # Component playground & documentation
 │   └── web               # Internal internal-use demo application
 ├── packages
-│   ├── design-system     # [Metapackage] Main 'org-design-system' entry point
+│   ├── design-system     # [@org-design-system/styles.css] Main entry point
 │   ├── ui                # [@org-design-system/components] Core components
 │   ├── icons             # [@org-design-system/icons] Shared SVG icon library
 │   └── styles            # [@org-design-system/styles] Design token engine
@@ -40,27 +40,29 @@ optimized SVG icons transformed into React components with an `Icon` suffix.
 ### 1. Installation
 The recommended way to use the design system is via the metapackage:
 ```bash
-pnpm add org-design-system
+npm install @org-design-system/core
 ```
 
 ### 2. Styling Integration
 Add this single import to your global CSS (e.g., `globals.css`):
 ```css
-@import "org-design-system/style.css";
+@import "@org-design-system/core/styles.css";
 ```
 
 ### 3. Usage
+You can import components and icons directly from `@org-design-system/core`:
 ```tsx
-import { Button, RocketIcon } from "org-design-system";
-
-export default function App() {
-  return (
-    <Button intent="success" leftIcon={<RocketIcon />}>
-      Deploy Satellite
-    </Button>
-  );
-}
+import { Button, RocketIcon } from "@org-design-system/core";
 ```
+
+Or, thanks to peer dependencies, you can also import them from their respective packages without separate installation:
+```tsx
+import { RocketIcon } from "@org-design-system/icons";
+import { Button } from "@org-design-system/components";
+```
+
+> [!NOTE]
+> If you are using `pnpm`, you may need to enable [public-hoist-pattern](https://pnpm.io/npmrc#public-hoist-pattern) in your `.npmrc` to access these packages by name if they are not explicitly in your `package.json`.
 
 ## 🛠️ Internal Development
 

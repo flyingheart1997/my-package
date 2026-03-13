@@ -14,7 +14,7 @@ This app serves as a "Canary" environment for the design system. It is used to:
 - **Next.js**: App Router based.
 - **TypeScript**: Typed component integration.
 - **Tailwind CSS v4**: for local styling and layout.
-- **org-design-system**: consumed directly from the local workspace.
+- **@org-design-system/core**: consumed directly from the local workspace.
 
 ## 🏃 Local Development
 

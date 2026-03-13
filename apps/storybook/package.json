@@ -8,14 +8,16 @@
     },
     "dependencies": {
         "@tailwindcss/postcss": "^4.0.0",
-        "radix-ui": "^1.4.3",
+        "@org-design-system/core": "workspace:*",
+        "@org-design-system/components": "workspace:*",
+        "@org-design-system/icons": "workspace:*",
+        "@org-design-system/styles": "workspace:*",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
         "tailwindcss": "^4.0.0"
     },
     "devDependencies": {
         "@chromatic-com/storybook": "^3.0.0",
-        "org-design-system": "workspace:*",
         "@storybook/addon-essentials": "8.6.18",
         "@storybook/addon-onboarding": "8.6.18",
         "@storybook/blocks": "8.6.18",

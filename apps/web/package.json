@@ -8,10 +8,13 @@
     "lint": "next lint"
   },
   "devDependencies": {
-    "org-design-system": "workspace:*",
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@org-design-system/core": "workspace:*",
+    "@org-design-system/components": "workspace:*",
+    "@org-design-system/icons": "workspace:*",
+    "@org-design-system/styles": "workspace:*",
     "radix-ui": "^1.4.3"
   }
 }
