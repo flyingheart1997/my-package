@@ -1,6 +1,6 @@
 {
     "name": "@org-design-system/styles",
-    "version": "0.1.15",
+    "version": "0.1.16",
     "description": "Design tokens for the @org-design-system",
     "publishConfig": {
         "access": "public"

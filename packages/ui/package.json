@@ -1,6 +1,6 @@
 {
     "name": "@org-design-system/components",
-    "version": "0.1.15",
+    "version": "0.1.16",
     "description": "UI components for the @org-design-system",
     "publishConfig": {
         "access": "public"
@@ -17,8 +17,7 @@
         ".": {
             "types": "./dist/index.d.ts",
             "import": "./dist/index.mjs",
-            "require": "./dist/index.js",
-            "default": "./src/index.ts"
+            "require": "./dist/index.js"
         },
         "./index.css": "./dist/index.css",
         "./style.css": "./dist/index.css"
