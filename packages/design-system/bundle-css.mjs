@@ -39,10 +39,15 @@ for (const file of filesToBundle) {
 
 const header = `/* Antaris Design System - Bundled Production CSS */
 @source "../../ui/src/**/*.{ts,tsx}";
+@source "../../ui/dist/**/*.{mjs,js}";
 @source "../../icons/src/**/*.{ts,tsx}";
+@source "../../icons/dist/**/*.{mjs,js}";
 @source "../../styles/src/**/*.{ts,tsx}";
+@source "../../styles/dist/**/*.{mjs,js}";
 @source "../../components/src/**/*.{ts,tsx}";
+@source "../../components/dist/**/*.{mjs,js}";
 @source "../src/**/*.{ts,tsx}";
+@source "../dist/**/*.{mjs,js}";
 
 `;
 

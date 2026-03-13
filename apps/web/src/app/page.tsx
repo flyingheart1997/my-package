@@ -18,7 +18,7 @@ export default function Home() {
             </div>
             <h1 className="text-xl font-semibold tracking-tight">Antaris Design System</h1>
           </div>
-          <Badge intent="primary" variant="soft">v0.1.15</Badge>
+          <Badge intent="primary" variant="soft">v0.1.16</Badge>
         </div>
       </header>
 

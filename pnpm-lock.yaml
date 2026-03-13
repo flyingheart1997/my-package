@@ -4435,7 +4435,7 @@ packages:
     resolution: {integrity: sha512-q5W7tVM71e2xjHZTlgfTDoPF/SmqKG5hddq9SzR49CH2hayqRKJtQ4mtRlSxKaJlR/+9rEM+mnBHf7I2/BQcpQ==}
     engines: {node: '>=6.10'}
 
-  ts-interface-checker@0.1.15:
+  ts-interface-checker@0.1.16:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
 
   tsconfig-paths@3.15.0:
@@ -8948,7 +8948,7 @@ snapshots:
       mz: 2.7.0
       pirates: 4.0.7
       tinyglobby: 0.2.15
-      ts-interface-checker: 0.1.15
+      ts-interface-checker: 0.1.16
 
   supports-color@7.2.0:
     dependencies:
@@ -9011,7 +9011,7 @@ snapshots:
 
   ts-dedent@2.2.0: {}
 
-  ts-interface-checker@0.1.15: {}
+  ts-interface-checker@0.1.16: {}
 
   tsconfig-paths@3.15.0:
     dependencies:

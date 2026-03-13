@@ -6,7 +6,7 @@ export default defineConfig({
   dts: true,
   clean: true,
   external: ["react", "react-dom", "tailwindcss"],
-  noExternal: ["@org-design-system/styles"],
+  noExternal: ["@org-design-system/styles", "tailwind-merge", "clsx", "class-variance-authority"],
   treeshake: true,
   minify: true,
   sourcemap: true,
