@@ -8,7 +8,7 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "turbo run dev --filter=web --filter=@org-design-system/components",
+    "dev": "turbo run dev --filter=web --filter=@org-design-system/*",
     "build": "npx turbo build",
     "lint": "npx turbo lint",
     "build:design-tokens": "npx turbo run build:design-tokens",
@@ -18,9 +18,7 @@
     "publish:all": "pnpm -r publish --access public --no-git-checks"
   },
   "dependencies": {
-    "@org-design-system/icons": "workspace:*",
-    "@org-design-system/styles": "workspace:*",
-    "@org-design-system/components": "workspace:*",
+    "@org-design-system/core": "workspace:*",
     "lucide-react": "^0.477.0",
     "next": "15.2.0",
     "radix-ui": "^1.4.3",

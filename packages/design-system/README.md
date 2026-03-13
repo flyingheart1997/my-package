@@ -1,22 +1,22 @@
-# org-design-system 💎
+# @org-design-system/core 💎
 
 The official Antaris Design System metapackage. This package provides a unified, production-ready entry point for all components, icons, and styles.
 
 ## 🚀 Key Features
 
 - **Simplified Consumption**: Access everything via a single package.
-- **Subpath Exports**: Dedicated exports for `components`, `icons`, and `style.css`.
+- **Subpath Exports**: Dedicated exports for `components`, `icons`, and `styles`.
 - **Tree-Shakable**: Built with `tsup` for optimal performance.
 - **Type-Safe**: Complete TypeScript support for all re-exported libraries.
 
 ## 📦 Installation
 
 ```bash
-npm install org-design-system
+npm install @org-design-system/core
 # or
-pnpm add org-design-system
+pnpm add @org-design-system/core
 # or
-yarn add org-design-system
+yarn add @org-design-system/core
 ```
 
 ## ⚙️ Setup
@@ -25,10 +25,10 @@ yarn add org-design-system
 Import the consolidated design system styles into your root application file (e.g., `_app.tsx` or `layout.tsx`):
 
 ```css
-@import "org-design-system/style.css";
+@import "@org-design-system/core/styles.css";
 ```
 
-### 2. Tailind CSS v4 (Optional but Recommended)
+### 2. Tailwind CSS v4 (Optional but Recommended)
 If you are using Tailwind CSS v4, our styles will automatically integrate with your `@theme` if you import them after the `tailwindcss` directive.
 
 ## 🛠️ Usage
@@ -37,13 +37,13 @@ If you are using Tailwind CSS v4, our styles will automatically integrate with y
 Re-exports everything for simple usage.
 
 ```tsx
-import { Button, SatelliteIcon, Badge } from "org-design-system";
+import { Button, RocketIcon, Badge } from "@org-design-system/core";
 
 export default function Home() {
   return (
     <div className="flex flex-col gap-4">
       <Badge intent="success">Online</Badge>
-      <Button variant="solid" intent="primary" leftIcon={<SatelliteIcon />}>
+      <Button variant="solid" intent="primary" leftIcon={<RocketIcon />}>
         Track Asset
       </Button>
     </div>
@@ -55,8 +55,16 @@ export default function Home() {
 For more granular control or to avoid potential naming conflicts.
 
 ```tsx
-import { Toggle } from "org-design-system/components";
-import { RocketIcon } from "org-design-system/icons";
+import { Button } from "@org-design-system/core/components";
+import { RocketIcon } from "@org-design-system/core/icons";
+```
+
+### Direct Package Usage (Recommended for complex apps)
+Because `@org-design-system/core` provides these as peer dependencies, you can also import them directly without separate installation:
+
+```tsx
+import { Button } from "@org-design-system/components";
+import { RocketIcon } from "@org-design-system/icons";
 ```
 
 ## 🏗️ Internal Structure

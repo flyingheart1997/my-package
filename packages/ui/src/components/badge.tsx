@@ -38,16 +38,10 @@ const badgeVariants = cva(
       },
     },
     compoundVariants: [
-      // Accent/Primary (Green in Figma)
       { variant: "solid", intent: "primary", className: "bg-[var(--color-surface-focus)] text-[var(--color-text-focus-subtle)]" },
       { variant: "soft", intent: "primary", className: "bg-[var(--color-surface-selected)] text-[var(--color-text-focus)]" },
       { variant: "surface", intent: "primary", className: "bg-[var(--color-surface-selected)] border-[var(--color-stroke-selected)] text-[var(--color-text-focus)]" },
       { variant: "outline", intent: "primary", className: "border-[var(--color-stroke-selected)] text-[var(--color-text-focus)]" },
-
-      { variant: "solid", intent: "accent", className: "bg-[var(--color-green-9)] text-white" },
-      { variant: "soft", intent: "accent", className: "bg-[var(--color-green-alpha-2)] text-[var(--color-green-11)]" },
-      { variant: "surface", intent: "accent", className: "bg-[var(--color-green-alpha-2)] border-[var(--color-green-alpha-4)] text-[var(--color-green-11)]" },
-      { variant: "outline", intent: "accent", className: "border-[var(--color-green-alpha-4)] text-[var(--color-green-11)]" },
       // Success
       { variant: "solid", intent: "success", className: "bg-[var(--color-surface-success)] text-white" },
       { variant: "soft", intent: "success", className: "bg-[var(--color-green-alpha-2)] text-[var(--color-text-selected)]" },

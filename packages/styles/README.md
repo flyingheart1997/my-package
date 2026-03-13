@@ -27,7 +27,7 @@ npm run sync
 
 ## 📦 Consumption
 
-This package is marked as **private** and is intended to be consumed internally by the `@org-design-system/components` package or via the main `org-design-system` metapackage.
+This package is marked as **private** and is intended to be consumed internally by the `@org-design-system/components` package or via the main `@org-design-system/core` metapackage.
 
 ### Direct Import (Internal Only)
 ```tsx

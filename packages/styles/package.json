@@ -1,7 +1,7 @@
 {
     "name": "@org-design-system/styles",
-    "version": "0.1.11",
-    "description": "Design tokens for the @org-design-system Design System",
+    "version": "0.1.15",
+    "description": "Design tokens for the @org-design-system",
     "publishConfig": {
         "access": "public"
     },
@@ -19,17 +19,12 @@
             "default": "./src/index.ts"
         },
         "./index.css": "./dist/index.css",
-        "./component.css": "./dist/component.css",
-        "./*": "./*"
+        "./component.css": "./dist/component.css"
     },
     "files": [
         "dist",
         "src"
     ],
-    "scripts": {
-        "build": "node build.js && tsup src/index.ts --format esm,cjs --dts --clean && cp src/index.css dist/index.css && cp src/component.css dist/component.css || true",
-        "dev": "tsup src/index.ts --format esm,cjs --watch --dts"
-    },
     "dependencies": {
         "tailwindcss": "^4.0.0"
     },
@@ -37,5 +32,9 @@
         "tsup": "^8.5.1",
         "tsx": "^4.7.1",
         "typescript": "^5.3.3"
+    },
+    "scripts": {
+        "build": "node build.js && tsup src/index.ts --format esm,cjs --dts --clean && mkdir -p dist && cp src/index.css dist/index.css && cp src/component.css dist/component.css || true",
+        "dev": "tsup src/index.ts --format esm,cjs --watch --dts"
     }
 }

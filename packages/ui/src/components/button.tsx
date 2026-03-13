@@ -18,6 +18,7 @@ const buttonVariants = cva(
       },
       intent: {
         primary: "",
+        accent: "", // Alias for primary to match Figma green
         neutral: "",
         success: "",
         warning: "",
@@ -41,7 +42,6 @@ const buttonVariants = cva(
       },
     },
     compoundVariants: [
-      // Solid Intent
       { variant: "solid", intent: "primary", className: "bg-[var(--color-blue-10)] text-white hover:bg-[var(--color-blue-9)]" },
       { variant: "solid", intent: "neutral", className: "bg-[var(--color-gray-12)] text-white hover:bg-[var(--color-gray-11)] dark:bg-[var(--color-gray-2)] dark:text-[var(--color-gray-12)] dark:hover:bg-[var(--color-gray-3)]" },
       { variant: "solid", intent: "success", className: "bg-[var(--color-green-9)] text-white hover:bg-[var(--color-green-10)]" },
@@ -54,6 +54,13 @@ const buttonVariants = cva(
       { variant: "soft", intent: "success", className: "bg-[var(--color-green-alpha-2)] text-[var(--color-green-11)] hover:bg-[var(--color-green-alpha-3)]" },
       { variant: "soft", intent: "warning", className: "bg-[var(--color-yellow-alpha-2)] text-[var(--color-yellow-11)] hover:bg-[var(--color-yellow-alpha-3)]" },
       { variant: "soft", intent: "error", className: "bg-[var(--color-red-alpha-2)] text-[var(--color-red-11)] hover:bg-[var(--color-red-alpha-3)]" },
+
+      // Surface Intent
+      { variant: "surface", intent: "primary", className: "bg-[var(--color-gray-alpha-3)] text-[var(--color-blue-11)] hover:bg-[var(--color-blue-11)]" },
+      { variant: "surface", intent: "neutral", className: "bg-[var(--color-blue-alpha-4)] text-[var(--color-gray-12)] hover:bg-[var(--color-gray-11)]" },
+      { variant: "surface", intent: "success", className: "bg-[var(--color-yellow-5)] text-[var(--color-green-11)] hover:bg-[var(--color-green-11)]" },
+      { variant: "surface", intent: "warning", className: "bg-[var(--color-gray-alpha-1)] text-[var(--color-yellow-11)] hover:bg-[var(--color-yellow-11)]" },
+      { variant: "surface", intent: "error", className: "bg-[var(--color-gray-alpha-2)] text-[var(--color-red-11)] hover:bg-[var(--color-red-11)]" },
 
       // Outline Intent
       { variant: "outline", intent: "primary", className: "border-[var(--color-blue-alpha-4)] text-[var(--color-blue-11)] hover:bg-[var(--color-blue-alpha-2)]" },

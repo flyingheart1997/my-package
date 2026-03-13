@@ -4,7 +4,10 @@
     "baseUrl": ".",
     "paths": {
       "@org-design-system/components": ["../../packages/ui/src/index.ts"],
+      "@org-design-system/components/index.css": ["../../packages/ui/src/index.css"],
       "@org-design-system/icons": ["../../packages/icons/src/index.ts"],
+      "@org-design-system/icons/index.css": ["../../packages/icons/src/index.css"],
+      "@org-design-system/styles/index.css": ["../../packages/styles/src/index.css"],
       "@org-design-system/styles/*": ["../../packages/styles/*"]
     }
   },
