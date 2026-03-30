@@ -10,69 +10,72 @@ const badgeVariants = cva(
     variants: {
       variant: {
         solid: "border-transparent",
-        soft: "border-transparent text-foreground",
+        soft: "border-transparent",
         surface: "border",
         outline: "border bg-transparent",
       },
       intent: {
-        primary: "",
-        accent: "", // Alias for primary to match Figma
+        accent: "",
+        neutral: "",
         success: "",
         warning: "",
         error: "",
         info: "",
-        neutral: "",
       },
       size: {
-        sm: "h-5 px-1 py-0.5 text-[10px] min-w-[20px]",
-        md: "h-6 px-1.5 py-1 text-[12px] min-w-[24px]",
-        lg: "h-6 px-1.5 py-1 text-[13px] min-w-[24px]",
+        sm: "h-(--sizing-16) px-(--spacing-4) py-(--spacing-2) text-[length:var(--text-font-size-sm)] min-w-(--sizing-20) gap-(--spacing-4) rounded-(--radius-md)",
+        md: "h-(--sizing-24) px-(--spacing-6) py-(--spacing-4) text-[length:var(--text-font-size-md)] min-w-(--sizing-24) gap-(--spacing-4) rounded-(--radius-md)",
+        lg: "h-(--sizing-30) px-(--spacing-8) py-(--spacing-6) text-[length:var(--text-font-size-lg)] min-w-(--sizing-30) gap-(--spacing-4) rounded-(--radius-md)",
       },
       radius: {
-        none: "rounded-none",
-        sm: "rounded-[4px]",
-        md: "rounded-[6px]",
-        lg: "rounded-[8px]",
-        xl: "rounded-[8px]",
-        full: "rounded-full",
+        none: "!rounded-none",
+        sm: "!rounded-(--radius-sm)",
+        md: "!rounded-(--radius-md)",
+        lg: "!rounded-(--radius-lg)",
+        full: "!rounded-full",
       },
     },
     compoundVariants: [
-      { variant: "solid", intent: "primary", className: "bg-[var(--color-surface-focus)] text-[var(--color-text-focus-subtle)]" },
-      { variant: "soft", intent: "primary", className: "bg-[var(--color-surface-selected)] text-[var(--color-text-focus)]" },
-      { variant: "surface", intent: "primary", className: "bg-[var(--color-surface-selected)] border-[var(--color-stroke-selected)] text-[var(--color-text-focus)]" },
-      { variant: "outline", intent: "primary", className: "border-[var(--color-stroke-selected)] text-[var(--color-text-focus)]" },
-      // Success
-      { variant: "solid", intent: "success", className: "bg-[var(--color-surface-success)] text-white" },
-      { variant: "soft", intent: "success", className: "bg-[var(--color-green-alpha-2)] text-[var(--color-text-selected)]" },
-      { variant: "surface", intent: "success", className: "bg-[var(--color-green-alpha-2)] border-[var(--color-stroke-success)] text-[var(--color-text-selected)]" },
-      { variant: "outline", intent: "success", className: "border-[var(--color-stroke-success)] text-[var(--color-text-selected)]" },
-      // Warning
-      { variant: "solid", intent: "warning", className: "bg-[var(--color-surface-warnig)] text-black" },
-      { variant: "soft", intent: "warning", className: "bg-[var(--color-yellow-alpha-1)] text-[var(--color-text-warning)]" },
-      { variant: "surface", intent: "warning", className: "bg-[var(--color-yellow-alpha-1)] border-[var(--color-stroke-warning)] text-[var(--color-text-warning)]" },
-      { variant: "outline", intent: "warning", className: "border-[var(--color-stroke-warning)] text-[var(--color-text-warning)]" },
-      // Error
-      { variant: "solid", intent: "error", className: "bg-[var(--color-surface-error)] text-white" },
-      { variant: "soft", intent: "error", className: "bg-[var(--color-red-alpha-1)] text-[var(--color-text-error)]" },
-      { variant: "surface", intent: "error", className: "bg-[var(--color-red-alpha-1)] border-[var(--color-stroke-error)] text-[var(--color-text-error)]" },
-      { variant: "outline", intent: "error", className: "border-[var(--color-stroke-error)] text-[var(--color-text-error)]" },
-      // Info
-      { variant: "solid", intent: "info", className: "bg-[var(--color-surface-info)] text-white" },
-      { variant: "soft", intent: "info", className: "bg-[var(--color-blue-alpha-1)] text-[var(--color-text-info)]" },
-      { variant: "surface", intent: "info", className: "bg-[var(--color-blue-alpha-1)] border-[var(--color-stroke-info)] text-[var(--color-text-info)]" },
-      { variant: "outline", intent: "info", className: "border-[var(--color-stroke-info)] text-[var(--color-text-info)]" },
+      // Accent (Primary)
+      { variant: "solid", intent: "accent", className: "bg-[var(--color-surface-focus)] text-white" },
+      { variant: "soft", intent: "accent", className: "bg-[var(--color-green-alpha-2)] text-[var(--color-text-selected)]" },
+      { variant: "surface", intent: "accent", className: "bg-[var(--color-green-alpha-2)] border-[var(--color-stroke-selected)] text-[var(--color-text-selected)]" },
+      { variant: "outline", intent: "accent", className: "border-[var(--color-stroke-selected)] text-[var(--color-text-selected)]" },
+
       // Neutral
       { variant: "solid", intent: "neutral", className: "bg-[var(--color-gray-9)] text-white" },
-      { variant: "soft", intent: "neutral", className: "bg-[var(--color-gray-alpha-3)] text-[var(--color-text-primary)]" },
-      { variant: "surface", intent: "neutral", className: "bg-[var(--color-gray-alpha-3)] border-[var(--color-stroke-primary)] text-[var(--color-text-primary)]" },
+      { variant: "soft", intent: "neutral", className: "bg-[var(--color-gray-alpha-3)] text-[var(--color-text-secondary)]" },
+      { variant: "surface", intent: "neutral", className: "bg-[var(--color-gray-alpha-3)] border-[var(--color-stroke-primary)] text-[var(--color-text-secondary)]" },
       { variant: "outline", intent: "neutral", className: "border-[var(--color-stroke-primary)] text-[var(--color-text-secondary)]" },
+
+      // Success
+      { variant: "solid", intent: "success", className: "bg-[var(--color-surface-success)] text-white" },
+      { variant: "soft", intent: "success", className: "bg-[var(--color-green-alpha-3)] text-[var(--color-text-selected)]" },
+      { variant: "surface", intent: "success", className: "bg-[var(--color-green-alpha-3)] border-[var(--color-stroke-success)] text-[var(--color-text-selected)]" },
+      { variant: "outline", intent: "success", className: "border-[var(--color-stroke-success)] text-[var(--color-text-selected)]" },
+
+      // Warning
+      { variant: "solid", intent: "warning", className: "bg-[var(--color-surface-warnig-hover)] text-white" },
+      { variant: "soft", intent: "warning", className: "bg-[var(--color-yellow-alpha-3)] text-[var(--color-text-warning)]" },
+      { variant: "surface", intent: "warning", className: "bg-[var(--color-yellow-alpha-3)] border-[var(--color-stroke-warning)] text-[var(--color-text-warning)]" },
+      { variant: "outline", intent: "warning", className: "border-[var(--color-stroke-warning)] text-[var(--color-text-warning)]" },
+
+      // Error
+      { variant: "solid", intent: "error", className: "bg-[var(--color-surface-error-hover)] text-white" },
+      { variant: "soft", intent: "error", className: "bg-[var(--color-red-alpha-3)] text-[var(--color-text-error)]" },
+      { variant: "surface", intent: "error", className: "bg-[var(--color-red-alpha-3)] border-[var(--color-stroke-error)] text-[var(--color-text-error)]" },
+      { variant: "outline", intent: "error", className: "border-[var(--color-stroke-error)] text-[var(--color-text-error)]" },
+
+      // Info
+      { variant: "solid", intent: "info", className: "bg-[var(--color-surface-info-hover)] text-white" },
+      { variant: "soft", intent: "info", className: "bg-[var(--color-blue-alpha-3)] text-[var(--color-text-info)]" },
+      { variant: "surface", intent: "info", className: "bg-[var(--color-blue-alpha-3)] border-[var(--color-stroke-info)] text-[var(--color-text-info)]" },
+      { variant: "outline", intent: "info", className: "border-[var(--color-stroke-info)] text-[var(--color-text-info)]" },
     ],
     defaultVariants: {
-      variant: "soft",
-      intent: "neutral",
+      variant: "solid",
+      intent: "accent",
       size: "md",
-      radius: "md",
     },
   }
 )
@@ -81,6 +84,8 @@ interface BadgeProps
   extends React.ComponentProps<"span">,
   VariantProps<typeof badgeVariants> {
   asChild?: boolean
+  leftIcon?: React.ReactNode
+  rightIcon?: React.ReactNode
 }
 
 function Badge({
@@ -90,6 +95,9 @@ function Badge({
   radius,
   size,
   asChild = false,
+  leftIcon,
+  rightIcon,
+  children,
   ...props
 }: BadgeProps) {
   const Comp = asChild ? Slot : "span"
@@ -103,7 +111,17 @@ function Badge({
       data-radius={radius}
       className={cn(badgeVariants({ variant, intent, size, radius }), className)}
       {...props}
-    />
+    >
+      {asChild ? (
+        children
+      ) : (
+        <>
+          {leftIcon && <span className="inline-flex shrink-0">{leftIcon}</span>}
+          {children}
+          {rightIcon && <span className="inline-flex shrink-0">{rightIcon}</span>}
+        </>
+      )}
+    </Comp>
   )
 }
 

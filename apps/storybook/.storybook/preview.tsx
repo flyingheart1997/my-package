@@ -11,9 +11,10 @@ const preview: Preview = {
     },
   },
   decorators: [
-    (Story) => (
-      <Story />
-    ),
+    (Story) => {
+      document.documentElement.classList.add('dark');
+      return Story();
+    },
   ],
 };
 

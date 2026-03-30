@@ -9,78 +9,98 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        solid: "",
-        soft: "",
+        solid: "border-transparent",
+        soft: "border-transparent",
         surface: "border",
         outline: "border bg-transparent",
-        ghost: "bg-transparent",
-        link: "bg-transparent underline-offset-4 hover:underline",
+        ghost: "bg-transparent border-transparent",
+        link: "bg-transparent border-transparent underline-offset-4 hover:underline",
       },
       intent: {
-        primary: "",
-        accent: "", // Alias for primary to match Figma green
+        accent: "",
         neutral: "",
         success: "",
         warning: "",
         error: "",
+        info: "",
       },
       size: {
-        xl: "h-12 px-[18px] text-base gap-2",
-        lg: "h-10 px-3.5 text-sm gap-1.5",
-        md: "h-9 px-3 text-sm gap-1",
-        sm: "h-8 px-3 text-sm gap-1",
-        xs: "h-6 px-1.5 text-xs gap-0.5",
-        icon: "size-9 p-0",
+        xl: "h-(--sizing-48) text-[length:var(--text-font-size-xxl)] gap-(--spacing-8) rounded-(--radius-lg)",
+        lg: "h-(--sizing-40) text-[length:var(--text-font-size-xl)] gap-(--spacing-6) rounded-(--radius-lg)",
+        md: "h-(--sizing-32) text-[length:var(--text-font-size-lg)] gap-(--spacing-4) rounded-(--radius-md)",
+        sm: "h-(--sizing-24) text-[length:var(--text-font-size-md)] gap-(--spacing-2) rounded-(--radius-md)",
+      },
+      mode: {
+        button: "",
+        icon: "aspect-square p-0",
       },
       radius: {
-        none: "rounded-none",
-        sm: "rounded-[4px]",
-        md: "rounded-[6px]",
-        lg: "rounded-[8px]",
-        xl: "rounded-[8px]",
-        full: "rounded-full",
+        none: "!rounded-none",
+        sm: "!rounded-(--radius-sm)",
+        md: "!rounded-(--radius-md)",
+        lg: "!rounded-(--radius-lg)",
+        xl: "!rounded-(--radius-xl)",
+        full: "!rounded-full",
       },
     },
     compoundVariants: [
-      { variant: "solid", intent: "primary", className: "bg-[var(--color-blue-10)] text-white hover:bg-[var(--color-blue-9)]" },
-      { variant: "solid", intent: "neutral", className: "bg-[var(--color-gray-12)] text-white hover:bg-[var(--color-gray-11)] dark:bg-[var(--color-gray-2)] dark:text-[var(--color-gray-12)] dark:hover:bg-[var(--color-gray-3)]" },
-      { variant: "solid", intent: "success", className: "bg-[var(--color-green-9)] text-white hover:bg-[var(--color-green-10)]" },
-      { variant: "solid", intent: "warning", className: "bg-[var(--color-yellow-9)] text-white hover:bg-[var(--color-yellow-10)]" },
-      { variant: "solid", intent: "error", className: "bg-[var(--color-red-9)] text-white hover:bg-[var(--color-red-10)]" },
+      // Radii mapping by size (sm/md -> md, lg/xl -> lg)
+      { size: "sm", mode: "button", className: "px-(--spacing-10) rounded-(--radius-md)" },
+      { size: "md", mode: "button", className: "px-(--spacing-12) rounded-(--radius-md)" },
+      { size: "lg", mode: "button", className: "px-(--spacing-14) rounded-(--radius-lg)" },
+      { size: "xl", mode: "button", className: "px-(--spacing-18) rounded-(--radius-lg)" },
 
-      // Soft Intent
-      { variant: "soft", intent: "primary", className: "bg-[var(--color-blue-alpha-2)] text-[var(--color-blue-11)] hover:bg-[var(--color-blue-alpha-3)]" },
-      { variant: "soft", intent: "neutral", className: "bg-[var(--color-gray-alpha-2)] text-[var(--color-gray-12)] hover:bg-[var(--color-gray-alpha-3)]" },
-      { variant: "soft", intent: "success", className: "bg-[var(--color-green-alpha-2)] text-[var(--color-green-11)] hover:bg-[var(--color-green-alpha-3)]" },
-      { variant: "soft", intent: "warning", className: "bg-[var(--color-yellow-alpha-2)] text-[var(--color-yellow-11)] hover:bg-[var(--color-yellow-alpha-3)]" },
-      { variant: "soft", intent: "error", className: "bg-[var(--color-red-alpha-2)] text-[var(--color-red-11)] hover:bg-[var(--color-red-alpha-3)]" },
+      { size: "sm", mode: "icon", className: "rounded-(--radius-md)" },
+      { size: "md", mode: "icon", className: "rounded-(--radius-md)" },
+      { size: "lg", mode: "icon", className: "rounded-(--radius-lg)" },
+      { size: "xl", mode: "icon", className: "rounded-(--radius-lg)" },
+      // Accent (Primary)
+      { variant: "solid", intent: "accent", className: "bg-[var(--color-green-9)] text-white hover:bg-[var(--color-green-10)] active:bg-[var(--color-green-11)]" },
+      { variant: "soft", intent: "accent", className: "bg-[var(--color-green-alpha-2)] text-[var(--color-green-11)] hover:bg-[var(--color-green-alpha-3)] active:bg-[var(--color-green-alpha-4)]" },
+      { variant: "surface", intent: "accent", className: "bg-[var(--color-green-alpha-2)] border-[var(--color-green-7)] text-[var(--color-green-11)] hover:bg-[var(--color-green-alpha-3)] active:bg-[var(--color-green-alpha-4)]" },
+      { variant: "outline", intent: "accent", className: "border-[var(--color-green-7)] text-[var(--color-green-11)] hover:bg-[var(--color-green-alpha-2)] active:bg-[var(--color-green-alpha-3)]" },
+      { variant: "ghost", intent: "accent", className: "text-[var(--color-green-11)] hover:bg-[var(--color-green-alpha-2)] active:bg-[var(--color-green-alpha-3)]" },
 
-      // Surface Intent
-      { variant: "surface", intent: "primary", className: "bg-[var(--color-gray-alpha-3)] text-[var(--color-blue-11)] hover:bg-[var(--color-blue-11)]" },
-      { variant: "surface", intent: "neutral", className: "bg-[var(--color-blue-alpha-4)] text-[var(--color-gray-12)] hover:bg-[var(--color-gray-11)]" },
-      { variant: "surface", intent: "success", className: "bg-[var(--color-yellow-5)] text-[var(--color-green-11)] hover:bg-[var(--color-green-11)]" },
-      { variant: "surface", intent: "warning", className: "bg-[var(--color-gray-alpha-1)] text-[var(--color-yellow-11)] hover:bg-[var(--color-yellow-11)]" },
-      { variant: "surface", intent: "error", className: "bg-[var(--color-gray-alpha-2)] text-[var(--color-red-11)] hover:bg-[var(--color-red-11)]" },
+      // Neutral
+      { variant: "solid", intent: "neutral", className: "bg-[var(--color-gray-9)] text-white hover:bg-[var(--color-gray-10)] active:bg-[var(--color-gray-11)]" },
+      { variant: "soft", intent: "neutral", className: "bg-[var(--color-gray-alpha-2)] text-[var(--color-gray-11)] hover:bg-[var(--color-gray-alpha-3)] active:bg-[var(--color-gray-alpha-4)]" },
+      { variant: "surface", intent: "neutral", className: "bg-[var(--color-gray-alpha-2)] border-[var(--color-gray-7)] text-[var(--color-gray-11)] hover:bg-[var(--color-gray-alpha-3)] active:bg-[var(--color-gray-alpha-4)]" },
+      { variant: "outline", intent: "neutral", className: "border-[var(--color-gray-7)] text-[var(--color-gray-11)] hover:bg-[var(--color-gray-alpha-2)] active:bg-[var(--color-gray-alpha-3)]" },
+      { variant: "ghost", intent: "neutral", className: "text-[var(--color-gray-11)] hover:bg-[var(--color-gray-alpha-2)] active:bg-[var(--color-gray-alpha-3)]" },
 
-      // Outline Intent
-      { variant: "outline", intent: "primary", className: "border-[var(--color-blue-alpha-4)] text-[var(--color-blue-11)] hover:bg-[var(--color-blue-alpha-2)]" },
-      { variant: "outline", intent: "neutral", className: "border-[var(--color-gray-alpha-4)] text-[var(--color-gray-12)] hover:bg-[var(--color-gray-alpha-2)]" },
-      { variant: "outline", intent: "success", className: "border-[var(--color-green-alpha-4)] text-[var(--color-green-11)] hover:bg-[var(--color-green-alpha-2)]" },
-      { variant: "outline", intent: "warning", className: "border-[var(--color-yellow-alpha-4)] text-[var(--color-yellow-11)] hover:bg-[var(--color-yellow-alpha-2)]" },
-      { variant: "outline", intent: "error", className: "border-[var(--color-red-alpha-4)] text-[var(--color-red-11)] hover:bg-[var(--color-red-alpha-2)]" },
+      // Success
+      { variant: "solid", intent: "success", className: "bg-[var(--color-green-9)] text-white hover:bg-[var(--color-green-10)] active:bg-[var(--color-green-11)]" },
+      { variant: "soft", intent: "success", className: "bg-[var(--color-green-alpha-2)] text-[var(--color-green-11)] hover:bg-[var(--color-green-alpha-3)] active:bg-[var(--color-green-alpha-4)]" },
+      { variant: "surface", intent: "success", className: "bg-[var(--color-green-alpha-2)] border-[var(--color-green-7)] text-[var(--color-green-11)] hover:bg-[var(--color-green-alpha-3)] active:bg-[var(--color-green-alpha-4)]" },
+      { variant: "outline", intent: "success", className: "border-[var(--color-green-7)] text-[var(--color-green-11)] hover:bg-[var(--color-green-alpha-2)] active:bg-[var(--color-green-alpha-3)]" },
+      { variant: "ghost", intent: "success", className: "text-[var(--color-green-11)] hover:bg-[var(--color-green-alpha-2)] active:bg-[var(--color-green-alpha-3)]" },
 
-      // Ghost Intent
-      { variant: "ghost", intent: "primary", className: "text-[var(--color-blue-11)] hover:bg-[var(--color-blue-alpha-2)]" },
-      { variant: "ghost", intent: "neutral", className: "text-[var(--color-gray-12)] hover:bg-[var(--color-gray-alpha-2)]" },
-      { variant: "ghost", intent: "success", className: "text-[var(--color-green-11)] hover:bg-[var(--color-green-alpha-2)]" },
-      { variant: "ghost", intent: "warning", className: "text-[var(--color-yellow-11)] hover:bg-[var(--color-yellow-alpha-2)]" },
-      { variant: "ghost", intent: "error", className: "text-[var(--color-red-11)] hover:bg-[var(--color-red-alpha-2)]" },
+      // Warning
+      { variant: "solid", intent: "warning", className: "bg-[var(--color-yellow-9)] text-white hover:bg-[var(--color-yellow-10)] active:bg-[var(--color-yellow-11)]" },
+      { variant: "soft", intent: "warning", className: "bg-[var(--color-yellow-alpha-3)] text-[var(--color-yellow-11)] hover:bg-[var(--color-yellow-alpha-4)] active:bg-[var(--color-yellow-alpha-5)]" },
+      { variant: "surface", intent: "warning", className: "bg-[var(--color-yellow-alpha-2)] border-[var(--color-yellow-7)] text-[var(--color-yellow-11)] hover:bg-[var(--color-yellow-alpha-3)] active:bg-[var(--color-yellow-alpha-4)]" },
+      { variant: "outline", intent: "warning", className: "border-[var(--color-yellow-7)] text-[var(--color-yellow-11)] hover:bg-[var(--color-yellow-alpha-2)] active:bg-[var(--color-yellow-alpha-3)]" },
+      { variant: "ghost", intent: "warning", className: "text-[var(--color-yellow-11)] hover:bg-[var(--color-yellow-alpha-2)] active:bg-[var(--color-yellow-alpha-3)]" },
+
+      // Error
+      { variant: "solid", intent: "error", className: "bg-[var(--color-red-9)] text-white hover:bg-[var(--color-red-10)] active:bg-[var(--color-red-11)]" },
+      { variant: "soft", intent: "error", className: "bg-[var(--color-red-alpha-3)] text-[var(--color-red-11)] hover:bg-[var(--color-red-alpha-4)] active:bg-[var(--color-red-alpha-5)]" },
+      { variant: "surface", intent: "error", className: "bg-[var(--color-red-alpha-2)] border-[var(--color-red-7)] text-[var(--color-red-11)] hover:bg-[var(--color-red-alpha-3)] active:bg-[var(--color-red-alpha-4)]" },
+      { variant: "outline", intent: "error", className: "border-[var(--color-red-7)] text-[var(--color-red-11)] hover:bg-[var(--color-red-alpha-2)] active:bg-[var(--color-red-alpha-3)]" },
+      { variant: "ghost", intent: "error", className: "text-[var(--color-red-11)] hover:bg-[var(--color-red-alpha-2)] active:bg-[var(--color-red-alpha-3)]" },
+
+      // Info
+      { variant: "solid", intent: "info", className: "bg-[var(--color-blue-9)] text-white hover:bg-[var(--color-blue-10)] active:bg-[var(--color-blue-11)]" },
+      { variant: "soft", intent: "info", className: "bg-[var(--color-blue-alpha-3)] text-[var(--color-blue-11)] hover:bg-[var(--color-blue-alpha-4)] active:bg-[var(--color-blue-alpha-5)]" },
+      { variant: "surface", intent: "info", className: "bg-[var(--color-blue-alpha-2)] border-[var(--color-blue-7)] text-[var(--color-blue-11)] hover:bg-[var(--color-blue-alpha-3)] active:bg-[var(--color-blue-alpha-4)]" },
+      { variant: "outline", intent: "info", className: "border-[var(--color-blue-7)] text-[var(--color-blue-11)] hover:bg-[var(--color-blue-alpha-2)] active:bg-[var(--color-blue-alpha-3)]" },
+      { variant: "ghost", intent: "info", className: "text-[var(--color-blue-11)] hover:bg-[var(--color-blue-alpha-2)] active:bg-[var(--color-blue-alpha-3)]" },
     ],
     defaultVariants: {
       variant: "solid",
-      intent: "primary",
+      intent: "neutral",
       size: "md",
-      radius: "md",
+      mode: "button",
     },
   }
 )
@@ -103,6 +123,7 @@ function Button({
   intent,
   radius,
   size,
+  mode,
   asChild = false,
   leftIcon,
   rightIcon,
@@ -118,16 +139,17 @@ function Button({
       data-intent={intent}
       data-size={size}
       data-radius={radius}
-      className={cn(buttonVariants({ variant, intent, size, radius, className }))}
+      data-mode={mode}
+      className={cn(buttonVariants({ variant, intent, size, radius, mode, className }))}
       {...props}
     >
       {asChild ? (
         children
       ) : (
         <>
-          {leftIcon && <span className="inline-flex shrink-0">{leftIcon}</span>}
+          {leftIcon && <span className="inline-flex shrink-0 items-center justify-center">{leftIcon}</span>}
           {children}
-          {rightIcon && <span className="inline-flex shrink-0">{rightIcon}</span>}
+          {rightIcon && <span className="inline-flex shrink-0 items-center justify-center">{rightIcon}</span>}
         </>
       )}
     </Comp>
